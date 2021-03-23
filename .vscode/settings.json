@@ -1,6 +1,8 @@
 {
-  "editor.formatOnSave": false,
+  "editor.formatOnSave": true,
+  "editor.wordWrap": "on",
   "editor.codeActionsOnSave": {
     "source.fixAll.eslint": true
-  }
+  },
+  "editor.defaultFormatter": "esbenp.prettier-vscode"
 }
