@@ -1,12 +1,14 @@
 import Game, { GameTemplateProps } from 'templates/Game'
 
 import galleryMock from 'components/Gallery/mock'
+import gamesMock from 'components/GameCardSlider/mock'
+import highlightMock from 'components/Highlight/mock'
 
 export default function Index(props: GameTemplateProps) {
   return <Game {...props} />
 }
 
-// gerar em build time (/game/bla /game/foo ...)
+// gerar em build time (/game/bla, /game/foo ...)
 export async function getStaticPaths() {
   return {
     paths: [{ params: { slug: 'cyberpunk-2077' } }],
@@ -52,7 +54,10 @@ export async function getStaticProps() {
         publisher: 'CD PROJEKT RED',
         rating: 'BR18',
         genres: ['Action', 'Role-playing']
-      }
+      },
+      upcomingGames: gamesMock,
+      upcomingHighlight: highlightMock,
+      recommendedGames: gamesMock
     }
   }
 }
