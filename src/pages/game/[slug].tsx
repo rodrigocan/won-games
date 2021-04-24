@@ -1,7 +1,5 @@
-import { useRouter } from 'next/router'
+import Game from 'templates/Game'
 
 export default function Index() {
-  const router = useRouter()
-
-  return <h1>{router.query.slug}</h1>
+  return <Game />
 }
