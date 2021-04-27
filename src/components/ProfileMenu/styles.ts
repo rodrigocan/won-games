@@ -35,6 +35,7 @@ type LinkProps = {
 
 export const Link = styled.a<LinkProps>`
   ${({ theme, isActive }) => css`
+    cursor: pointer;
     text-decoration: none;
     display: flex;
     align-items: center;
@@ -60,6 +61,6 @@ export const Link = styled.a<LinkProps>`
     `}
 
     ${!isActive && linkModifiers.default(theme)};
-    ${isActive && linkModifiers.active(theme)}
+    ${isActive && linkModifiers.active(theme)};
   `}
 `
