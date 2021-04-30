@@ -10,6 +10,7 @@ import Showcase from 'components/Showcase'
 import * as S from './styles'
 
 export type HomeTemplateProps = {
+  data: string
   banners: BannerProps[]
   newGames: GameCardProps[]
   mostPopularHighlight: HighlightProps
