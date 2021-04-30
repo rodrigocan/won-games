@@ -11,7 +11,7 @@ export const Wrapper = styled.article`
   `}
 `
 
-export const ImageBox = styled.div`
+export const ImageBox = styled.a`
   height: 14rem;
   width: 100%;
   background: #f6f7f8;
@@ -53,8 +53,9 @@ export const Content = styled.div`
   `}
 `
 
-export const Info = styled.div`
+export const Info = styled.a`
   max-width: calc(100% - 2.5rem);
+  text-decoration: none;
 `
 
 export const Title = styled.h3`
@@ -113,7 +114,7 @@ const priceModifiers = {
   promotional: (theme: DefaultTheme) => css`
     color: ${theme.colors.gray};
     text-decoration: line-through;
-    margin-right: ${theme.spacings.xsmall};
+    margin-right: ${theme.spacings.xxsmall};
   `
 }
 
@@ -124,7 +125,7 @@ export const Price = styled.div<PriceProps>`
     height: 3rem;
     align-items: center;
 
-    ${!isPromotional && priceModifiers.default(theme)}
-    ${isPromotional && priceModifiers.promotional(theme)}
+    ${!isPromotional && priceModifiers.default(theme)};
+    ${isPromotional && priceModifiers.promotional(theme)};
   `}
 `
