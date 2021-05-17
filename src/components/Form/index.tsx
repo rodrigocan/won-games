@@ -9,10 +9,18 @@ export const FormWrapper = styled.div`
     ${TextFieldStyles.Wrapper} {
       margin: ${theme.spacings.xxsmall} 0;
     }
+
     ${ButtonStyles.Wrapper} {
       margin: ${theme.spacings.medium} auto ${theme.spacings.xsmall};
     }
   `}
+`
+
+export const FormLoading = styled.img.attrs(() => ({
+  src: '/img/dots.svg',
+  alt: 'Waiting...'
+}))`
+  width: 4rem;
 `
 
 export const FormLink = styled.div`
