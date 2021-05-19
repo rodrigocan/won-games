@@ -44,7 +44,7 @@ const FormForgotPassword = () => {
 
     setFieldError({})
 
-    // enviar um post para /forgot-password pedindo um e-mail
+    // enviar um post para /forgot-password pedindo um email
     const response = await fetch(
       `${process.env.NEXT_PUBLIC_API_URL}/auth/forgot-password`,
       {
@@ -71,7 +71,7 @@ const FormForgotPassword = () => {
       {success ? (
         <FormSuccess>
           <CheckCircleOutline />
-          You just received and email!
+          You just received an email!
         </FormSuccess>
       ) : (
         <>
@@ -92,7 +92,7 @@ const FormForgotPassword = () => {
             />
 
             <Button type="submit" size="large" fullWidth disabled={loading}>
-              {loading ? <FormLoading /> : <span>Send e-mail</span>}
+              {loading ? <FormLoading /> : <span>Send email</span>}
             </Button>
           </form>
         </>
