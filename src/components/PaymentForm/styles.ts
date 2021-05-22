@@ -3,7 +3,7 @@ import styled, { css } from 'styled-components'
 
 import * as ButtonStyles from 'components/Button/styles'
 
-export const Wrapper = styled.main``
+export const Wrapper = styled.div``
 
 export const Body = styled.div`
   ${({ theme }) => css`
@@ -26,5 +26,15 @@ export const Footer = styled.div`
       padding-right: ${theme.spacings.xxsmall};
       outline: 0;
     }
+  `}
+`
+
+export const Error = styled.p`
+  ${({ theme }) => css`
+    color: ${theme.colors.red};
+    font-size: ${theme.font.sizes.xsmall};
+    padding-top: ${theme.spacings.xsmall};
+    display: flex;
+    align-items: center;
   `}
 `
