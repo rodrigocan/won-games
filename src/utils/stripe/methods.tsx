@@ -21,5 +21,5 @@ export const createPaymentIntent = async ({
     }
   )
 
-  await response.json()
+  return await response.json()
 }
