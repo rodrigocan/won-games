@@ -60,10 +60,12 @@ const GameItem = ({
 
       {!!paymentInfo && (
         <S.PaymentContent>
-          <div>{paymentInfo.purchaseDate}</div>
+          <p>{paymentInfo.purchaseDate}</p>
           <S.CardInfo>
             <span>{paymentInfo.number}</span>
-            <img src={paymentInfo.img} alt={paymentInfo.flag} />
+            {!!paymentInfo.img && (
+              <img src={paymentInfo.img} alt={paymentInfo.flag} />
+            )}
           </S.CardInfo>
         </S.PaymentContent>
       )}
