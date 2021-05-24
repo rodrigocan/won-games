@@ -631,7 +631,7 @@ type Order {
   payment_intent_id: String
   card_brand: String
   card_last4: String
-  total_in_cents: Long
+  total_in_cents: Long!
   games(sort: String, limit: Int, start: Int, where: JSON): [Game!]!
 }
 
@@ -703,7 +703,7 @@ input OrderInput {
   payment_intent_id: String
   card_brand: String
   card_last4: String
-  total_in_cents: Long
+  total_in_cents: Long!
   created_by: ID
   updated_by: ID
 }
