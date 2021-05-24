@@ -1,7 +1,7 @@
 import React, { useState, useEffect } from 'react'
 import { useRouter } from 'next/router'
 import { CardElement, useElements, useStripe } from '@stripe/react-stripe-js'
-import { StripeCardElementChangeEvent } from '@stripe/stripe-js'
+import { PaymentIntent, StripeCardElementChangeEvent } from '@stripe/stripe-js'
 import { ErrorOutline, ShoppingCart } from '@styled-icons/material-outlined'
 
 import { useCart } from 'hooks/use-cart'
@@ -9,9 +9,8 @@ import Button from 'components/Button'
 import Heading from 'components/Heading'
 
 import * as S from './styles'
-import { createPaymentIntent } from 'utils/stripe/methods'
+import { createPayment, createPaymentIntent } from 'utils/stripe/methods'
 import { Session } from 'next-auth'
-import { session, useSession } from 'next-auth/client'
 import { FormLoading } from 'components/Form'
 
 type PaymentFormProps = {
@@ -36,7 +35,7 @@ const PaymentForm = ({ session }: PaymentFormProps) => {
         // bater na API /orders/create-payment-intent
         const data = await createPaymentIntent({
           items,
-          token: session.jwt as string
+          token: session.jwt
         })
 
         // se eu receber freeGames: true => setFreeGames
@@ -67,6 +66,16 @@ const PaymentForm = ({ session }: PaymentFormProps) => {
     setError(event.error ? event.error.message : '')
   }
 
+  const saveOrder = async (paymentIntent?: PaymentIntent) => {
+    const data = await createPayment({
+      items,
+      paymentIntent,
+      token: session.jwt
+    })
+
+    return data
+  }
+
   const handleSubmit = async (event: React.FormEvent) => {
     event.preventDefault()
     setLoading(true)
@@ -75,6 +84,7 @@ const PaymentForm = ({ session }: PaymentFormProps) => {
     if (freeGames) {
       // salva no banco
       // bater na API /orders
+      saveOrder()
 
       // redireciona para success
       push('/success')
@@ -95,6 +105,9 @@ const PaymentForm = ({ session }: PaymentFormProps) => {
       setLoading(false)
 
       // salvar a compra no banco do Strapi
+      // bater na API /orders
+      saveOrder(payload.paymentIntent)
+
       // redirecionar para a página de Sucesso
       push('/success')
     }
