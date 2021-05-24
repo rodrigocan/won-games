@@ -74,6 +74,8 @@ const PaymentForm = ({ session }: PaymentFormProps) => {
     // se for freeGames
     if (freeGames) {
       // salva no banco
+      // bater na API /orders
+
       // redireciona para success
       push('/success')
       return
