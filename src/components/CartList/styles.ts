@@ -21,10 +21,6 @@ export const Wrapper = styled.div<WrapperProps>`
         padding-bottom: ${theme.spacings.medium};
       }
 
-      ${EmptyStyles.Image} {
-        max-width: 20rem;
-      }
-
       ${EmptyStyles.Title} {
         font-size: ${theme.font.sizes.large};
       }
@@ -71,7 +67,7 @@ export const Footer = styled.div`
     ${media.greaterThan('medium')`
       font-size: ${theme.font.sizes.medium};
       padding: ${theme.spacings.small};
-    `}
+    `};
   `}
 `
 
