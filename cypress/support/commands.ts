@@ -41,6 +41,7 @@ Cypress.Commands.add('shouldRenderBanner', () => {
     cy.findByRole('link', { name: /buy now/i })
 
     cy.get('.slick-dots > :nth-child(3) > button').click()
+    cy.wait(500)
 
     cy.findByRole('heading', { name: /huge promotion!/i })
     cy.findByRole('link', { name: /browse games/i })
@@ -58,5 +59,7 @@ Cypress.Commands.add('shouldRenderShowcase', ({ name, highlight = false }) => {
         cy.findByRole('link').should('have.attr', 'href')
       })
     }
+
+    cy.get(`[data-cy="game-card"]`).should('have.length.gt', 0)
   })
 })
