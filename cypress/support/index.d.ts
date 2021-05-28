@@ -6,6 +6,11 @@ type ShowcaseAttributes = {
   highlight?: boolean
 }
 
+type FieldsAtrributes = {
+  label: string
+  name: string | number
+}
+
 declare namespace Cypress {
   /**
    * Custom command to visit google page
@@ -21,6 +26,14 @@ declare namespace Cypress {
    */
   interface Chainable {
     getByDataCy(selector: string): Chainable<Element>
+  }
+
+  /**
+   * Custom command to get fields by label
+   * @example cy.getFields([{ label: 'foo', name: 'foo' }])
+   */
+  interface Chainable {
+    getFields(fields: FieldsAtrributes[]): Chainable<Element>
   }
 
   /**
