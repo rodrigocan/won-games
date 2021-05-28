@@ -16,6 +16,14 @@ declare namespace Cypress {
   }
 
   /**
+   * Custom command to get element by data-cy values
+   * @example cy.getByDataCy('selector')
+   */
+  interface Chainable {
+    getByDataCy(selector: string): Chainable<Element>
+  }
+
+  /**
    * Custom command to check banner in page
    * @example cy.shouldRenderBanner()
    */
