@@ -25,7 +25,7 @@ describe('User', () => {
     cy.findByText(/cypress/i).should('not.exist')
   })
 
-  it.only('should sign the user and redirect to the page it was defined previously', () => {
+  it('should sign the user and redirect to the page it was defined previously', () => {
     cy.visit('/profile/me')
 
     // redirecionado para o sign-in com a callback do profile/me
