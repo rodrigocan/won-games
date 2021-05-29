@@ -51,4 +51,20 @@ declare namespace Cypress {
   interface Chainable {
     shouldRenderShowcase(attrs: ShowcaseAttributes): Chainable<Element>
   }
+
+  /**
+   * Custom command to check if value is less than price
+   * @example cy.shouldBeLessThan(100)
+   */
+  interface Chainable {
+    shouldBeLessThan(value: number): Chainable<Element>
+  }
+
+  /**
+   * Custom command to check if value is greater than price
+   * @example cy.shouldBeGreaterThan(50)
+   */
+  interface Chainable {
+    shouldBeGreaterThan(value: number): Chainable<Element>
+  }
 }
