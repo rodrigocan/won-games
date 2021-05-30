@@ -9,7 +9,7 @@ type User = {
 
 type ShowcaseAttributes = {
   name: string
-  hightlight?: boolean
+  highlight?: boolean
 }
 
 type FieldsAttributes = {
