@@ -36,7 +36,7 @@ const PaymentForm = ({ session }: PaymentFormProps) => {
         // bater na API /orders/create-payment-intent
         const data = await createPaymentIntent({
           items,
-          token: session.jwt
+          token: session.jwt as string
         })
 
         // se eu receber freeGames: true => setFreeGames
@@ -71,7 +71,7 @@ const PaymentForm = ({ session }: PaymentFormProps) => {
     const data = await createPayment({
       items,
       paymentIntent,
-      token: session.jwt
+      token: session.jwt as string
     })
 
     return data
